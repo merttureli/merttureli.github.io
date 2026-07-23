@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robo-Catcher · Mert Tureli</title>
+  <meta name="description" content="Case study: an automatic softball catching and return machine built for under $700 with 100% feed-indexing reliability on competition day. Feeding mechanism and electronics by Mert Tureli.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%239C4221'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='26' font-weight='600' fill='%23FAF7F0'%3EMT%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="../index.html">Mert Tureli</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience" class="hide-mobile">Experience</a>
+      <a href="../assets/Mert-Tureli-Resume.pdf">Resume</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container case-hero">
+  <span class="label">Case study · Senior capstone</span>
+  <h1>Robo-Catcher: a softball machine that catches and throws back</h1>
+  <p class="intro">Pitching machines are everywhere. Machines that <em>catch</em> the ball and return it don’t exist, so our capstone team built one for under $700. I co-led the feeding subsystem and owned all of the machine’s electronics and firmware.</p>
+
+  <figure class="project-media">
+    <img src="../assets/img/robocatcher/final-product.png" alt="The finished Robo-Catcher machine" width="1200" height="800">
+  </figure>
+
+  <table class="title-block">
+    <tr>
+      <th>Role</th><td>Feeding-subsystem co-lead · all electronics &amp; firmware</td>
+      <th>Team</th><td>12 (capture / feeding / return subsystems)</td>
+    </tr>
+    <tr>
+      <th>Tools</th><td>ESP32 · C++ · MATLAB · NEMA 17 + TB6600 · SolidWorks · laser-cut HDF · 3D printing</td>
+      <th>Timeline</th><td>2025 · two academic terms</td>
+    </tr>
+    <tr>
+      <th>Result</th><td>100% feed-indexing success on competition day</td>
+      <th>Status</th><td>Delivered</td>
+    </tr>
+  </table>
+
+  <div class="case-body">
+    <h2>The problem</h2>
+    <p>A solo softball player can buy a machine that pitches, but someone still has to walk every ball back. We set out to close the loop: a machine that catches an incoming throw, feeds it internally, and returns it, with no human in the middle. Off-the-shelf solutions don’t exist at any price; ours had to come in under a $700 budget.</p>
+
+    <h2>Constraints</h2>
+    <ul class="constraints">
+      <li>Total build cost under $700, with every actuator and driver chosen with cost in mind</li>
+      <li>Portable by one person: the finished machine weighs 55 lb and fits in a car trunk</li>
+      <li>Assembles at the field with no tools</li>
+      <li>Battery-powered: a full practice session on a single 12&nbsp;V 20&nbsp;Ah SLA battery</li>
+      <li>Safe around players: wireless emergency stop and hardware cut-offs required</li>
+    </ul>
+
+    <h2>My role</h2>
+    <p>Twelve of us split across three subsystems: capture, feeding, and return. I co-led the four-person feeding group and owned the machine’s entire electrical and software system: motor drive, control firmware, wireless interface, and safety logic.</p>
+
+    <h2>Sizing the feeder before cutting anything</h2>
+    <p>The feeder is a rotating dual-chamber indexer: catch a ball in one chamber, rotate 180°, and present it to the return flywheel. The failure mode that kills machines like this is a stall mid-rotation, so before any parts were made I modeled the load case in MATLAB (a 0.19&nbsp;kg ball lifted through 180° of rotation) and sized the NEMA&nbsp;17 stepper and TB6600 driver to a 1.8× torque safety factor.</p>
+
+    <figure class="project-media">
+      <img src="../assets/img/robocatcher/full-feeder.png" alt="The dual-chamber rotating feeder assembly" width="1200" height="800" loading="lazy">
+    </figure>
+    <figure class="project-media">
+      <img src="../assets/img/robocatcher/indexer-cross-section.png" alt="CAD cross-section of the indexer" width="1200" height="800" loading="lazy">
+      <figcaption>FIG 2: Indexer cross-section. The chamber geometry self-centers the ball ahead of the flywheel.</figcaption>
+    </figure>
+
+    <h2>Electronics and firmware</h2>
+    <p>Everything runs on one ESP32. The firmware handles PWM speed control for the 120&nbsp;W DC return flywheel (switched through a MOSFET stage), stepper indexing for the feeder, and limit-switch logic so the machine always knows where the chambers are. A wireless remote gives start/stop from across the field, and the emergency cut-offs kill motor power independently of the microcontroller.</p>
+
+    <figure class="project-media">
+      <img src="../assets/img/robocatcher/working-on-electronics.png" alt="Wiring the ESP32 control electronics" width="1200" height="800" loading="lazy">
+      <figcaption>FIG 3: Bench bring-up of the control electronics.</figcaption>
+    </figure>
+    <figure class="project-media">
+      <img src="../assets/img/robocatcher/flywheel-full.png" alt="The return flywheel assembly" width="1200" height="800" loading="lazy">
+      <figcaption>FIG 4: Return flywheel assembly, driven by the 120&nbsp;W DC motor.</figcaption>
+    </figure>
+
+    <h2>The result</h2>
+    <figure class="project-media">
+      <img src="../assets/img/robocatcher/full-assembly.png" alt="Full Robo-Catcher assembly" width="1200" height="800" loading="lazy">
+    </figure>
+    <ul class="results-list">
+      <li><strong>100%</strong> feed-indexing success rate on competition day: every ball delivered, no misses</li>
+      <li><strong>&lt;$700</strong> total build cost, on a $700 cap</li>
+      <li><strong>55 lb</strong>: one-person portable, fits in a car trunk, assembles with no tools</li>
+      <li><strong>1.5 hr</strong> continuous runtime on a single 12&nbsp;V 20&nbsp;Ah SLA battery</li>
+    </ul>
+
+    <h2>What I learned</h2>
+    <p>The MATLAB torque study felt slow when teammates were already printing parts, and then the feeder ran a full competition day without a single missed index. Analysis before fabrication is cheaper than iteration after it. If I built it again, I’d add closed-loop feedback on the flywheel RPM so return speed stays constant as the battery sags.</p>
+  </div>
+
+  <nav class="case-nav">
+    <a href="../index.html#projects">← All projects</a>
+    <a href="bend-jig.html">Next: the aerogel bend jig <span class="arrow">→</span></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2026 Mert Tureli</span>
+    <span class="colophon">Set in Fraunces &amp; Inter · Hand-built HTML/CSS, no framework</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

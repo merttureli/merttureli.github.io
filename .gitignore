@@ -1,0 +1,12 @@
+# private working files — never publish
+TASKS.md
+PROJECT_INTAKE.md
+legacy/
+Robocatcher pics/
+
+# unreferenced placeholder shot-list images
+assets/img/*.svg
+
+# OS noise
+Thumbs.db
+Desktop.ini

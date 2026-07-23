@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therma-Shift · Mert Tureli</title>
+  <meta name="description" content="Case study: a dual-mode thermoelectric beverage coaster with closed-loop temperature control; Peltier thermal stack bench-validated to an 11 °C cold face at 12 V.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%239C4221'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='26' font-weight='600' fill='%23FAF7F0'%3EMT%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="../index.html">Mert Tureli</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience" class="hide-mobile">Experience</a>
+      <a href="../assets/Mert-Tureli-Resume.pdf">Resume</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container case-hero">
+  <span class="label">Case study · Personal project</span>
+  <h1>Therma-Shift: a dual-mode thermoelectric beverage coaster</h1>
+  <p class="intro">A solid-state desktop coaster that actively heats or cools any standard mug, glass, or can, with no proprietary drinkware. One Peltier module, closed-loop temperature control, and a safety architecture designed for unattended desk use.</p>
+
+  <table class="title-block">
+    <tr>
+      <th>Role</th><td>Design, thermal validation, firmware (solo)</td>
+      <th>Type</th><td>Personal project</td>
+    </tr>
+    <tr>
+      <th>Tools</th><td>TEC1-12703 Peltier · Arduino (C++) · NTC thermistors · DRV8871 driver · USB-C PD</td>
+      <th>Timeline</th><td>2026 · in progress</td>
+    </tr>
+    <tr>
+      <th>Result</th><td>Thermal stack bench-validated: 11 °C cold face at 12 V</td>
+      <th>Status</th><td>Closed-loop integration underway</td>
+    </tr>
+  </table>
+
+  <div class="case-body">
+    <h2>The problem</h2>
+    <p>Existing options split into two bad camps: proprietary heated mugs that lock you into their drinkware, and cheap USB warmers with no temperature regulation at all, some of them genuine fire hazards. The interesting engineering question sits in between: one compact device that both heats and cools, works with whatever cup is on your desk, and can be trusted to run unattended.</p>
+
+    <h2>Constraints</h2>
+    <ul class="constraints">
+      <li>Universal: any mug, glass, or can; the device adapts to the drinkware, not the reverse</li>
+      <li>Dual mode: heating and cooling from the same hardware</li>
+      <li>Powered over USB-C Power Delivery, within a desk-friendly power budget</li>
+      <li>Safe unattended: thermal-runaway prevention independent of normal control</li>
+      <li>Low-profile, quiet enough for an office desk</li>
+    </ul>
+
+    <h2>The design</h2>
+    <p>A thermoelectric (Peltier) module does both jobs: drive current one way and the top plate cools, reverse it and the plate heats. The TEC1-12703 sits between an aluminum top plate and a finned heatsink with a blower that carries away waste heat. An NTC thermistor at the plate closes the control loop, targeting ±2 °F around the setpoint, with the module driven through a DRV8871 H-bridge so firmware controls both power and polarity.</p>
+    <p>Safety is layered the same way as my lab test rig: the control loop regulates, and separate firmware cutoffs watch for thermal runaway independently of the control loop, so an unattended fault shuts the device down safely.</p>
+
+    <h2>Validate the physics before the electronics</h2>
+    <p>Before integrating the control loop, I bench-tested the bare thermal stack against a lab power supply with K-type thermocouples on both faces. At 12 V the cold face held 10.7–12 °C with the heatsink at 53–56 °C, reaching thermal equilibrium in about five minutes. A voltage sweep mapped cold-face temperature against input power to find the efficient operating window, and swapping the heatsink’s stock adhesive pad for proper thermal paste measurably improved performance; the interfaces matter as much as the module.</p>
+
+    <h2>Where it stands</h2>
+    <ul class="results-list">
+      <li><strong>10.7–12 °C</strong> cold-face temperature at 12 V, steady state</li>
+      <li><strong>~5 min</strong> to thermal equilibrium</li>
+      <li><strong>Dual mode</strong> verified: same stack heats and cools by polarity</li>
+      <li>Staged firmware test suite (thermistor read, driver control) written; closed-loop integration in progress</li>
+    </ul>
+
+    <h2>What I learned</h2>
+    <p>Thermal interfaces dominate the budget: the cheapest change in the whole project (paste instead of pad) produced one of the biggest measured gains. And validating the physics on a bench supply before building electronics meant the control system now gets designed around measured behavior, not datasheet optimism.</p>
+  </div>
+
+  <nav class="case-nav">
+    <a href="../index.html#projects">← All projects</a>
+    <a href="rudder-pedals.html">Next: flight-sim rudder pedals <span class="arrow">→</span></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2026 Mert Tureli</span>
+    <span class="colophon">Set in Fraunces &amp; Inter · Hand-built HTML/CSS, no framework</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

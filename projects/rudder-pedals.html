@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight-Sim Rudder Pedals · Mert Tureli</title>
+  <meta name="description" content="Case study: 3-axis F-15/F-18-style flight simulator rudder pedals with friction-free Hall-effect sensing and custom C++ USB-HID firmware.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%239C4221'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='26' font-weight='600' fill='%23FAF7F0'%3EMT%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="../index.html">Mert Tureli</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience" class="hide-mobile">Experience</a>
+      <a href="../assets/Mert-Tureli-Resume.pdf">Resume</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container case-hero">
+  <span class="label">Case study · Personal project</span>
+  <h1>Rudder pedals that feel like the jet</h1>
+  <p class="intro">I fly ultralights, and consumer sim pedals never felt right: short throw, toy-like centering, and potentiometers that get jittery with wear. So I built my own: F-15/F-18-style geometry, three axes, magnetic sensing that can’t wear out, and firmware any PC recognizes without drivers.</p>
+
+  <table class="title-block">
+    <tr>
+      <th>Role</th><td>Design, print, wiring, and firmware (solo)</td>
+      <th>Type</th><td>Personal project</td>
+    </tr>
+    <tr>
+      <th>Tools</th><td>SolidWorks · FDM 3D printing · Teensy 2.0 · A1301 Hall-effect sensors · C++</td>
+      <th>Timeline</th><td>2026</td>
+    </tr>
+    <tr>
+      <th>Result</th><td>3-axis plug-and-play USB HID controller</td>
+      <th>Status</th><td>In daily use at my sim</td>
+    </tr>
+  </table>
+
+  <div class="case-body">
+    <h2>The problem</h2>
+    <p>Rudder pedals do three jobs at once: yaw through the sliding pedal motion, plus independent left and right toe brakes. Consumer hardware compresses all of that into short, springy travel measured by potentiometers, which drift, jitter, and eventually wear out. I wanted fighter-style pedal geometry with sensing that stays clean for the life of the hardware.</p>
+
+    <h2>Constraints</h2>
+    <ul class="constraints">
+      <li>Three independent axes (yaw plus left and right toe brakes) in one mechanism</li>
+      <li>Every structural part printable on a hobby FDM printer</li>
+      <li>No contact-based sensing anywhere in the signal path</li>
+      <li>Plug-and-play: recognized as a standard game controller by any PC, no drivers, no companion app</li>
+    </ul>
+
+    <h2>Mechanism first</h2>
+    <p>I designed the three-axis assembly in SolidWorks around F-15/F-18-style pedal geometry and 3D-printed it, iterating on pivot placement and return feel. Rapid prototyping earns its name here: pedal feel is subjective, and the fastest way to evaluate a linkage is to stand on it.</p>
+
+    <h2>Sensing without touching</h2>
+    <p>Each axis is measured by an A1301 Hall-effect sensor reading a magnet on the moving part: no wiper, no contact, nothing to wear. The output is smooth, continuous, and identical on day one and day one thousand. That single component choice eliminates the entire failure mode that ruins potentiometer-based controls.</p>
+
+    <h2>Firmware that gets out of the way</h2>
+    <p>A Teensy 2.0 reads the three sensors and presents itself to the PC as a standard USB HID game controller; plug it in and every simulator sees it instantly. The C++ firmware handles per-axis calibration (learning each axis’s real min/center/max) and configurable deadzone logic, so mechanical imperfection never reaches the sim.</p>
+
+    <h2>The result</h2>
+    <ul class="results-list">
+      <li><strong>3</strong> independent axes with fighter-style pedal geometry</li>
+      <li><strong>Zero-wear</strong> magnetic sensing, no potentiometers anywhere</li>
+      <li><strong>Plug-and-play</strong> USB HID: no drivers, works in any simulator</li>
+      <li><span class="fill" title="Fill in - see PROJECT_INTAKE.md">total parts cost vs. commercial equivalent here</span></li>
+    </ul>
+
+    <h2>What I learned</h2>
+    <p>This project is where mechanical design and embedded software stopped being separate skills for me. The pedal feel comes from the linkage; the precision comes from the sensor choice; the usability comes from the firmware, and no one of those could compensate for getting another one wrong.</p>
+  </div>
+
+  <nav class="case-nav">
+    <a href="../index.html#projects">← All projects</a>
+    <a href="bakeout-logger.html">Next: the bakeout logger <span class="arrow">→</span></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2026 Mert Tureli</span>
+    <span class="colophon">Set in Fraunces &amp; Inter · Hand-built HTML/CSS, no framework</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

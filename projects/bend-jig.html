@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aerogel Bend Jig · Mert Tureli</title>
+  <meta name="description" content="Case study: a 12-part 3-point bend-test fixture for silica aerogel, designed in SolidWorks 2025 with every part generated and verified by VBA macros.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%239C4221'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='26' font-weight='600' fill='%23FAF7F0'%3EMT%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="../index.html">Mert Tureli</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience" class="hide-mobile">Experience</a>
+      <a href="../assets/Mert-Tureli-Resume.pdf">Resume</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container case-hero">
+  <span class="label">Case study · Test fixture design</span>
+  <h1>A three-point bend fixture for silica aerogel</h1>
+  <p class="intro">Silica aerogel is one of the lightest solids ever made, and one of the most fragile. To characterize its flexural behavior, SunThru needed a three-point bend fixture matched to its samples. I designed a fully printable 12-part jig in SolidWorks 2025, built around the material’s fragility.</p>
+
+  <table class="title-block">
+    <tr>
+      <th>Role</th><td>Design engineer (solo)</td>
+      <th>For</th><td>SunThru · aerogel window insulation</td>
+    </tr>
+    <tr>
+      <th>Tools</th><td>SolidWorks 2025 · VBA macro automation · FDM 3D printing</td>
+      <th>Timeline</th><td>2026 · in progress</td>
+    </tr>
+    <tr>
+      <th>Result</th><td>12-part fully printable fixture for sample characterization</td>
+      <th>Status</th><td>First parts printed and in use</td>
+    </tr>
+  </table>
+
+  <div class="case-body">
+    <h2>The problem</h2>
+    <p>Three-point bend testing is a standard way to measure flexural strength, but commercial fixtures are built for metals and plastics, not for a material that can crush under its own clamping force. SunThru needed a fixture sized to its aerogel samples, gentle enough not to pre-damage them, and cheap enough to iterate: which meant 3D-printing it in-house.</p>
+
+    <h2>Constraints</h2>
+    <ul class="constraints">
+      <li>Every part printable on the lab’s FDM printer, with no machined components</li>
+      <li>12 interlocking parts sharing one coordinate system, so dimension changes ripple predictably</li>
+      <li>Standard M3 hardware throughout, with printable cross-hole channels</li>
+      <li>Sample contact geometry sized for delicate aerogel panes: <span class="fill" title="Fill in - see PROJECT_INTAKE.md">span and sample dimensions here</span></li>
+    </ul>
+
+    <h2>Parametric part design</h2>
+    <p>A 12-part fixture with interlocked dimensions is a maintenance problem: change one dimension by hand and eleven other parts silently stop fitting. I kept every part on a shared coordinate system and automated the rebuilds with SolidWorks VBA, so a dimension change regenerates the affected parts consistently, with each part’s geometry checked against its expected volume before acceptance.</p>
+    <p>The parts themselves are designed for the printer: additive layer-friendly geometry throughout, and horizontal M3 cross-holes shaped as printable channels so nothing needs support material or post-drilling.</p>
+
+    <h2>Where it stands</h2>
+    <ul class="results-list">
+      <li><strong>12</strong> interlocking parts on a shared coordinate system, fully FDM-printable</li>
+      <li><strong>Standard M3 hardware</strong> throughout, with printable cross-hole channels</li>
+      <li>Base plate and gauge plate printed and in use; remaining parts in staged delivery</li>
+      <li><span class="fill" title="Fill in - see PROJECT_INTAKE.md">first test-series result or repeatability figure here</span></li>
+    </ul>
+
+    <h2>What I learned</h2>
+    <p>The robust design decisions were the ones that thought like the manufacturing process: geometry built up in layers the way the printer builds it, holes shaped for printability instead of drills, and hardware chosen from one standard size. Designing for the process beat designing around it.</p>
+  </div>
+
+  <nav class="case-nav">
+    <a href="../index.html#projects">← All projects</a>
+    <a href="therma-shift.html">Next: Therma-Shift <span class="arrow">→</span></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2026 Mert Tureli</span>
+    <span class="colophon">Set in Fraunces &amp; Inter · Hand-built HTML/CSS, no framework</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

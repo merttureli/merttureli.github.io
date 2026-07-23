@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mert Tureli · Mechanical Engineer</title>
+  <meta name="description" content="Mert Tureli is a mechanical engineer (Union College '26) working across design, test, and controls: glazing prototypes, PLC automation, rocketry, and custom test rigs.">
+
+  <meta property="og:title" content="Mert Tureli · Mechanical Engineer">
+  <meta property="og:description" content="Mechanical engineer working across design, test, and controls. Portfolio of fixtures, automation, rocketry, and test rigs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://merttureli.github.io/">
+  <meta property="og:image" content="https://merttureli.github.io/assets/og-cover.png">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%239C4221'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='26' font-weight='600' fill='%23FAF7F0'%3EMT%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mert Tureli",
+    "jobTitle": "Mechanical Engineer",
+    "alumniOf": "Union College",
+    "email": "mailto:merttureli0@gmail.com",
+    "sameAs": ["https://www.linkedin.com/in/merttureli"]
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="#top">Mert Tureli</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#experience" class="hide-mobile">Experience</a>
+      <a href="#about" class="hide-mobile">About</a>
+      <a href="assets/Mert-Tureli-Resume.pdf">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <h1>Mert Tureli</h1>
+      <p class="hero-sub">Mechanical Engineer · B.S., Union College ’26</p>
+      <p class="intro bio">I work across design, test, and controls: vacuum-insulated glazing prototypes and PLC automation bring-up at SunThru, thermal components for fifth-generation fighter programs at TASECS, a national-award rocket payload as team captain, and the test rigs and tooling in between. Open to design, manufacturing, test, and controls roles.</p>
+      <div class="meta-row">
+        <span>Schenectady, NY</span>
+        <span>SHGM Ultralight Pilot</span>
+        <span>Open to work</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="#projects">View projects</a>
+        <a class="btn ghost" href="assets/Mert-Tureli-Resume.pdf">Resume (PDF)</a>
+        <a class="btn ghost" href="mailto:merttureli0@gmail.com">Email me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED PROJECTS ============ -->
+  <section id="projects">
+    <div class="container">
+      <span class="label">01 / Selected projects</span>
+      <h2>Built, tested, documented.</h2>
+
+      <div class="project-rows" style="margin-top: var(--space-12);">
+
+        <article class="project-row reveal">
+          <a class="project-media" href="projects/robo-catcher.html" aria-label="Robo-Catcher case study">
+            <img src="assets/img/robocatcher/final-product.png" alt="Robo-Catcher automatic softball catching and return machine, finished build" width="1200" height="800" loading="lazy">
+          </a>
+          <div class="project-body">
+            <span class="label">Capstone · Feeding &amp; electronics lead</span>
+            <h3><a href="projects/robo-catcher.html">Robo-Catcher: a softball machine that catches and throws back</a></h3>
+            <p>Pitching machines exist; none catch and return the ball. Our 12-person capstone team built one for under $700. I owned the rotating dual-chamber feeder and every line of electronics: MATLAB-sized stepper drive, ESP32 firmware, wireless controls, and the safety cut-offs.</p>
+            <span class="metric"><strong>100%</strong> indexing success · <strong>&lt;$700</strong> build · <strong>55 lb</strong>, fits in a car trunk</span>
+            <ul class="tags"><li>ESP32</li><li>NEMA 17 + TB6600</li><li>MATLAB</li><li>PWM control</li></ul>
+            <a href="projects/robo-catcher.html">Read the case study <span class="arrow">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-row reveal">
+          <a class="project-media spec-card" href="projects/bend-jig.html" aria-label="Bend jig case study">
+            <span class="sc-label"><span>Fixture 001 · 3-Point Bend Jig</span><span>SunThru</span></span>
+            <span class="sc-stats">
+              <span class="sc-stat"><strong>12</strong><small>printed parts</small></span>
+              <span class="sc-stat"><strong>3-point</strong><small>flexural test</small></span>
+              <span class="sc-stat"><strong>SW 2025</strong><small>parametric design</small></span>
+              <span class="sc-stat"><strong>FDM</strong><small>fully printable</small></span>
+            </span>
+            <span class="sc-foot">Silica aerogel · flexural characterization · 2026</span>
+          </a>
+          <div class="project-body">
+            <span class="label">Test fixture design</span>
+            <h3><a href="projects/bend-jig.html">A 12-part bend-test fixture for silica aerogel</a></h3>
+            <p>Aerogel is too fragile for off-the-shelf flexural fixtures. I designed a fully printable three-point bend jig in SolidWorks 2025: twelve interlocking parts on a shared coordinate system, sized to SunThru’s samples and built for gentle, repeatable clamping.</p>
+            <span class="metric"><strong>12</strong> printed parts · in use for aerogel characterization</span>
+            <ul class="tags"><li>SolidWorks 2025</li><li>FDM printing</li><li>Test fixtures</li><li>DFM</li></ul>
+            <a href="projects/bend-jig.html">Read the case study <span class="arrow">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-row reveal">
+          <a class="project-media spec-card" href="projects/rudder-pedals.html" aria-label="Rudder pedals case study">
+            <span class="sc-label"><span>Control 002 · Rudder Pedals</span><span>Personal build</span></span>
+            <span class="sc-stats">
+              <span class="sc-stat"><strong>3</strong><small>independent axes</small></span>
+              <span class="sc-stat"><strong>0</strong><small>wear parts in sensing</small></span>
+              <span class="sc-stat"><strong>USB HID</strong><small>plug and play</small></span>
+              <span class="sc-stat"><strong>C++</strong><small>custom firmware</small></span>
+            </span>
+            <span class="sc-foot">A1301 Hall sensors · Teensy 2.0 · 2026</span>
+          </a>
+          <div class="project-body">
+            <span class="label">Personal project · Solo build</span>
+            <h3><a href="projects/rudder-pedals.html">Flight-sim rudder pedals with friction-free magnetic sensing</a></h3>
+            <p>As a pilot, I wanted sim controls that feel like the real thing. I designed a three-axis control system in SolidWorks, 3D-printed the assembly, and wrote C++ USB-HID firmware for a Teensy reading A1301 Hall-effect sensors. It is plug-and-play in any simulator, with no drivers needed.</p>
+            <span class="metric"><strong>3</strong> axes · zero-wear magnetic sensing · plug-and-play USB HID</span>
+            <ul class="tags"><li>SolidWorks</li><li>3D printing</li><li>C++ firmware</li><li>Hall-effect sensors</li></ul>
+            <a href="projects/rudder-pedals.html">Read the case study <span class="arrow">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-row reveal">
+          <a class="project-media spec-card" href="projects/therma-shift.html" aria-label="Therma-Shift case study">
+            <span class="sc-label"><span>Thermal 003 · Therma-Shift</span><span>Personal build</span></span>
+            <span class="sc-stats">
+              <span class="sc-stat"><strong>2</strong><small>modes: heat + cool</small></span>
+              <span class="sc-stat"><strong>11 °C</strong><small>cold face at 12 V</small></span>
+              <span class="sc-stat"><strong>±2 °F</strong><small>closed-loop target</small></span>
+              <span class="sc-stat"><strong>USB-C</strong><small>power delivery</small></span>
+            </span>
+            <span class="sc-foot">TEC1-12703 Peltier · thermistor feedback · 2026</span>
+          </a>
+          <div class="project-body">
+            <span class="label">Thermal control · Solo build</span>
+            <h3><a href="projects/therma-shift.html">Therma-Shift: a dual-mode thermoelectric beverage coaster</a></h3>
+            <p>A solid-state coaster that actively heats or cools any mug or glass on a Peltier module. I designed the closed-loop temperature control (thermistor feedback, driver firmware, thermal-runaway cutoffs) and bench-validated the thermal stack with a voltage sweep before integration.</p>
+            <span class="metric"><strong>11 °C</strong> cold face at 12 V · bench-validated · closed-loop electronics in progress</span>
+            <ul class="tags"><li>Peltier / TEC</li><li>Thermistor feedback</li><li>Arduino</li><li>Thermal design</li></ul>
+            <a href="projects/therma-shift.html">Read the case study <span class="arrow">→</span></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MORE PROJECTS ============ -->
+  <section id="more">
+    <div class="container">
+      <span class="label">02 / More work</span>
+      <h2>Also on the bench</h2>
+      <ul class="more-list reveal" style="margin-top: var(--space-8);">
+        <li><div class="row">
+          <span class="title">Deployable sensor payload: 1st place, Battle of the Rockets</span>
+          <span class="desc">Team captain &amp; chief engineer for the winning deployable-payload entry</span>
+          <span class="year">2026</span>
+        </div></li>
+        <li><div class="row">
+          <span class="title">ModuFly interlocking modular rockets</span>
+          <span class="desc">Novel modular rocket architecture for STEM education, $70K seed funded</span>
+          <span class="year">2024–</span>
+        </div></li>
+        <li><div class="row">
+          <span class="title">HURJET &amp; KAAN thermal components · TASECS</span>
+          <span class="desc">HVAC valve design and material stress analysis for 5th-gen fighter programs</span>
+          <span class="year">2024</span>
+        </div></li>
+        <li><a href="projects/bakeout-logger.html">
+          <span class="title">EAG Bakeout Logger · SunThru</span>
+          <span class="desc">Zero-install Python lab logger with corruption-proof persistence, in daily use</span>
+          <span class="year">2026</span>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="container">
+      <span class="label">03 / Experience</span>
+      <h2>Where I’ve worked</h2>
+      <ol class="xp-list reveal" style="margin-top: var(--space-8);">
+
+        <li class="xp">
+          <span class="xp-num">01</span>
+          <div class="xp-role">
+            <h3>Engineering Intern</h3>
+            <span class="org">SunThru · aerogel window insulation</span>
+            <span class="dates">Jun 2026 – Present · Schenectady, NY</span>
+          </div>
+          <ul>
+            <li>Build and test first-generation vacuum-insulated aerogel glazing prototypes, the company’s first full units made in-house, and lead prototype validation across thermal performance, vacuum retention, and optical haze.</li>
+            <li>Support PLC automation bring-up on production equipment (AutomationDirect): panel wiring, 4–20 mA instrumentation and thermocouples, structured controller testing, and fault troubleshooting.</li>
+            <li>Designed a benchtop thermal test rig end to end: CAD, calibrated heat-flux sensing, ESP32 DAQ firmware, and fail-safe unattended overnight operation.</li>
+            <li>Designed the <a href="projects/bend-jig.html">aerogel three-point bend jig</a> and built the <a href="projects/bakeout-logger.html">EAG Bakeout Logger</a>, the lab’s run-logging tool; produce toleranced drawings and manage component sourcing for the prototype line.</li>
+          </ul>
+        </li>
+
+        <li class="xp">
+          <span class="xp-num">02</span>
+          <div class="xp-role">
+            <h3>Founder &amp; CEO</h3>
+            <span class="org">ModuFly · modular rocketry for STEM education</span>
+            <span class="dates">Sep 2024 – Jan 2026 · Schenectady, NY</span>
+          </div>
+          <ul>
+            <li>Secured $70,000 in seed funding via the SparkLabs competition and private investors.</li>
+            <li>Lead R&amp;D, production, and marketing for a novel interlocking rocket system.</li>
+            <li>Run hands-on rocketry workshops for 20+ high-school students.</li>
+          </ul>
+        </li>
+
+        <li class="xp">
+          <span class="xp-num">03</span>
+          <div class="xp-role">
+            <h3>Founder &amp; President</h3>
+            <span class="org">Union College Rocket Team</span>
+            <span class="dates">Aug 2023 – Jun 2026 · Schenectady, NY</span>
+          </div>
+          <ul>
+            <li>Built the team from zero to competition standard; lead 13 members in competition design and 12 in new-member training labs.</li>
+            <li>Grew the budget 700% through strategic proposals funding high-power airframe and telemetry work.</li>
+            <li>Won 1st place in the Battle of the Rockets 2026 deployable sensor payload event as captain and chief engineer.</li>
+            <li>Oversee structural design and safety compliance for high-power launches to NAR/Tripoli standards.</li>
+          </ul>
+        </li>
+
+        <li class="xp">
+          <span class="xp-num">04</span>
+          <div class="xp-role">
+            <h3>Design Engineer / Materials Intern</h3>
+            <span class="org">TASECS İklimlendirme</span>
+            <span class="dates">Jun 2024 – Aug 2024 · Izmir, Turkey</span>
+          </div>
+          <ul>
+            <li>Conducted material stress analysis supporting the KAAN (5th-gen fighter) and HURJET programs.</li>
+            <li>Designed high-efficiency HVAC valve components for aerospace thermal management, and upgraded engine/cockpit cooling for high-ambient-temperature operation.</li>
+          </ul>
+        </li>
+
+        <li class="xp">
+          <span class="xp-num">05</span>
+          <div class="xp-role">
+            <h3>Diagnostic Intern</h3>
+            <span class="org">Mercedes-Benz (Has Otomotiv)</span>
+            <span class="dates">Jun 2022 – Aug 2022 · Izmir, Turkey</span>
+          </div>
+          <ul>
+            <li>Managed technical diagnostics and repair workflows, coordinating service teams to hit delivery timelines.</li>
+          </ul>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="container">
+      <span class="label">04 / Toolbox</span>
+      <h2>What I work with</h2>
+      <div class="skills-grid reveal" style="margin-top: var(--space-8);">
+        <div>
+          <h3>Design &amp; CAD</h3>
+          <ul class="tags"><li>SolidWorks (expert, incl. VBA/API)</li><li>GD&amp;T (ASME Y14.5)</li><li>Tolerance stack-up analysis</li><li>AutoCAD</li><li>CATIA</li><li>Revit</li></ul>
+        </div>
+        <div>
+          <h3>Controls &amp; automation</h3>
+          <ul class="tags"><li>PLC ladder logic (AutomationDirect)</li><li>Control panel wiring</li><li>4–20 mA instrumentation</li><li>PID control</li><li>Controller testing &amp; troubleshooting</li></ul>
+        </div>
+        <div>
+          <h3>Analysis</h3>
+          <ul class="tags"><li>FEA</li><li>CFD</li><li>MATLAB</li><li>Trane TRACE 700</li><li>Excel (advanced)</li><li>IBM DOORS</li></ul>
+        </div>
+        <div>
+          <h3>Fabrication</h3>
+          <ul class="tags"><li>Industrial 3D printing (SLA/FDM)</li><li>Laser cutting</li><li>Milling</li><li>Lathe</li></ul>
+        </div>
+        <div>
+          <h3>Embedded &amp; software</h3>
+          <ul class="tags"><li>Python</li><li>C++ (ESP32, Teensy)</li><li>USB HID</li><li>JavaScript</li><li>AI-assisted development</li></ul>
+        </div>
+        <div>
+          <h3>Languages &amp; certs</h3>
+          <ul class="tags"><li>Turkish (native)</li><li>English (professional)</li><li>German (intermediate)</li><li>SHGM Ultralight Pilot</li><li>NAR member</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="container">
+      <span class="label">05 / About</span>
+      <h2>About</h2>
+      <div class="reveal" style="margin-top: var(--space-8); max-width: 68ch;">
+        <p>I grew up in Izmir, Turkey, and moved to New York for my engineering degree. Outside of work I fly ultralight aircraft (SHGM licensed), shoot competitive archery, and build flight-simulator hardware.</p>
+        <p>I like the practical side of engineering: fixtures, calibration, tooling, and clear documentation. Most of my projects sit where mechanical design meets software, and I am comfortable on both sides.</p>
+        <p>I am currently looking for a full-time engineering role in design, manufacturing, test, or controls.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <span class="label">06 / Contact</span>
+      <h2>Have a role, a project, or a rocket that needs an engineer?</h2>
+      <p style="margin-top: var(--space-6);"><a class="big-link" href="mailto:merttureli0@gmail.com">merttureli0@gmail.com</a></p>
+      <div class="meta-row" style="margin-top: var(--space-6);">
+        <a href="https://www.linkedin.com/in/merttureli">LinkedIn <span class="arrow">→</span></a>
+        <a href="assets/Mert-Tureli-Resume.pdf">Resume (PDF) <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© <span id="year">2026</span> Mert Tureli</span>
+    <span class="colophon">Set in Fraunces &amp; Inter · Hand-built HTML/CSS, no framework · Last updated July 2026</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
