@@ -568,3 +568,18 @@ a:hover .arrow { transform: translateX(4px); }
   .reveal { opacity: 1; transform: none; }
   .scribbled svg path { stroke-dashoffset: 0; }
 }
+
+/* Recommendation quote (About section) */
+.rec-quote {
+  border-left: 2px solid var(--accent);
+  padding-left: var(--space-6);
+  margin: var(--space-6) 0;
+}
+.rec-quote p { font-style: italic; }
+.rec-quote cite {
+  display: block;
+  margin-top: var(--space-4);
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
