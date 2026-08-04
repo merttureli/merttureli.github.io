@@ -15,3 +15,15 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 // Footer year
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
+
+// Intent events: resume downloads and contact clicks (GoatCounter, cookieless)
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a");
+  if (!a || !window.goatcounter || !window.goatcounter.count) return;
+  const href = a.getAttribute("href") || "";
+  let event = null;
+  if (href.includes("Mert-Tureli-Resume.pdf")) event = "resume-download";
+  else if (href.startsWith("mailto:")) event = "email-click";
+  else if (href.includes("linkedin.com")) event = "linkedin-click";
+  if (event) window.goatcounter.count({ path: event, title: event, event: true });
+});

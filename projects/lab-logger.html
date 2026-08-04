@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EAG Bakeout Logger · Mert Tureli</title>
+  <title>Lab Run Logger · Mert Tureli</title>
   <meta name="description" content="Case study: a zero-install, single-file Python lab logger with atomic persistence and a self-healing CSV mirror, built so a materials lab can't lose a run.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%239C4221'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='26' font-weight='600' fill='%23FAF7F0'%3EMT%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,12 +28,12 @@
 <main class="container case-hero">
   <span class="label">Case study · Software for the lab</span>
   <h1>The lab logger that can’t lose a run</h1>
-  <p class="intro">Bakeout characterization at SunThru (tracking how aerogel samples lose mass, change thickness, and reabsorb moisture after thermal processing) was living in scattered spreadsheets. A lab tool is only trusted if it never eats data, so I built one whose whole design revolves around not losing a run.</p>
+  <p class="intro">Sample characterization runs at SunThru were living in scattered spreadsheets: the same measurements taken before and after processing, logged a slightly different way every time. A lab tool is only trusted if it never eats data, so I built one whose whole design revolves around not losing a run.</p>
 
   <table class="title-block">
     <tr>
       <th>Role</th><td>Design &amp; development (solo)</td>
-      <th>For</th><td>SunThru · aerogel window insulation</td>
+      <th>For</th><td>SunThru · early-stage hardware R&amp;D</td>
     </tr>
     <tr>
       <th>Tools</th><td>Python 3, standard library only, single file</td>
@@ -47,7 +47,7 @@
 
   <div class="case-body">
     <h2>The problem</h2>
-    <p>Every bakeout run produces the same measurements: mass before and after, thickness before and after, a 24-hour reabsorption check, damage notes, a verdict. Scattered spreadsheets meant inconsistent columns, missed fields, and no single source of truth. The lab needed structured logging, but a lab PC is a hostile environment for software: no admin rights, no package installs, and Excel permanently open on the very file you want to write.</p>
+    <p>Every run produces the same set of measurements: a handful of before-and-after readings, a follow-up check the next day, condition notes, and a verdict. Scattered spreadsheets meant inconsistent columns, missed fields, and no single source of truth. The lab needed structured logging, but a lab PC is a hostile environment for software: no admin rights, no package installs, and Excel permanently open on the very file you want to write.</p>
 
     <h2>Constraints</h2>
     <ul class="constraints">
@@ -58,7 +58,7 @@
     </ul>
 
     <h2>One file, no dependencies, on purpose</h2>
-    <p>The entire app is a single Python file using only the standard library. It spins up a local HTTP server, opens the UI in the default browser, and everything (form, table, and derived calculations like mass-loss percentage and reabsorption fraction) is served from that one process. No pip, no IT ticket, no version drift between lab machines. Sixteen fields per run, with the derived quantities computed for you.</p>
+    <p>The entire app is a single Python file using only the standard library. It spins up a local HTTP server, opens the UI in the default browser, and everything (form, table, and the derived percentages and ratios the team cares about) is served from that one process. No pip, no IT ticket, no version drift between lab machines. Sixteen fields per run, with the derived quantities computed for you.</p>
 
     <h2>Designing for the failure you know will happen</h2>
     <p>The data layer is two files with different jobs. A JSON master is the source of truth: every save writes to a temp file first, then atomically replaces the master, so a crash mid-write can never corrupt it. If the master is ever found unreadable, it’s quarantined to a backup instead of being overwritten; a corrupt file must never be mistaken for an empty one.</p>
@@ -90,5 +90,6 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script data-goatcounter="https://merttureli.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
