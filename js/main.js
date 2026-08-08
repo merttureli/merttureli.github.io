@@ -1,3 +1,7 @@
+// Honor Do Not Track for GoatCounter too, so the privacy page's
+// "DNT means nothing is collected" holds for every layer on the site.
+if (navigator.doNotTrack === "1") window.goatcounter = { no_onload: true, no_events: true };
+
 // Scroll reveal — sections fade up once, rationed to block level.
 const observer = new IntersectionObserver(
   (entries) => {
@@ -18,6 +22,7 @@ if (year) year.textContent = new Date().getFullYear();
 
 // Intent events: resume downloads and contact clicks (GoatCounter, cookieless)
 document.addEventListener("click", (e) => {
+  if (navigator.doNotTrack === "1") return;
   const a = e.target.closest("a");
   if (!a || !window.goatcounter || !window.goatcounter.count) return;
   const href = a.getAttribute("href") || "";
