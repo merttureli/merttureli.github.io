@@ -56,9 +56,24 @@
     else ref = localStorage.getItem("mt_ref") || "";
   } catch (e) { /* private mode, ride without persistence */ }
 
+  /* ------------------------------------------------------------- own devices */
+
+  // Visiting ?self=1 once on a device marks it forever, and ?self=0 unmarks it.
+  // Every visit from that browser is then labelled at the source instead of
+  // being guessed at from the city it came from, which matters because guessing
+  // by city breaks the moment you travel, and because roughly half of all
+  // recorded visits are your own testing.
+  var me = false;
+  try {
+    if (params.get("self") === "1") localStorage.setItem("mt_self", "1");
+    else if (params.get("self") === "0") localStorage.removeItem("mt_self");
+    me = localStorage.getItem("mt_self") === "1";
+  } catch (e) { /* private mode, this visit just counts as a stranger */ }
+
   // Tidy the address bar once the code is banked.
-  if (params.has("r") && history.replaceState) {
+  if ((params.has("r") || params.has("self")) && history.replaceState) {
     params.delete("r");
+    params.delete("self");
     var q = params.toString();
     history.replaceState(null, "", location.pathname + (q ? "?" + q : "") + location.hash);
   }
@@ -132,6 +147,8 @@
     payload.vid = vid;
     payload.ref = ref || undefined;
     payload.path = location.pathname;
+    // Flagged device, or a browser openly declaring itself automated.
+    if (me || navigator.webdriver) payload.me = 1;
 
     var blob;
     try {
