@@ -10,3 +10,4 @@ assets/img/*.svg
 # OS noise
 Thumbs.db
 Desktop.ini
+_render/

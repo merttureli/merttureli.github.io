@@ -30,6 +30,10 @@
   <h1>Rudder pedals that feel like the jet</h1>
   <p class="intro">I fly ultralights, and consumer sim pedals never felt right: short throw, toy-like centering, and potentiometers that get jittery with wear. So I built my own: F-15/F-18-style geometry, three axes, magnetic sensing that can’t wear out, and firmware any PC recognizes without drivers.</p>
 
+  <figure class="project-media">
+    <img src="../assets/img/pedals-hero.png" alt="CAD render of the rudder pedal assembly: curved slotted footplate on its pivot arm between printed side walls" width="1800" height="1200">
+  </figure>
+
   <table class="title-block">
     <tr>
       <th>Role</th><td>Design, print, wiring, and firmware (solo)</td>
@@ -60,8 +64,18 @@
     <h2>Mechanism first</h2>
     <p>I designed the three-axis assembly in SolidWorks around F-15/F-18-style pedal geometry and 3D-printed it, iterating on pivot placement and return feel. Rapid prototyping earns its name here: pedal feel is subjective, and the fastest way to evaluate a linkage is to stand on it.</p>
 
+    <figure class="project-media">
+      <img src="../assets/img/pedals-profile.png" alt="Side profile CAD render of the pedal mechanism showing the pivot geometry" width="1800" height="1200" loading="lazy">
+      <figcaption>FIG 2: Pedal mechanism in profile. The footplate rides its pivot arm between the printed side walls.</figcaption>
+    </figure>
+
     <h2>Sensing without touching</h2>
     <p>Each axis is measured by an A1301 Hall-effect sensor reading a magnet on the moving part: no wiper, no contact, nothing to wear. The output is smooth, continuous, and identical on day one and day one thousand. That single component choice eliminates the entire failure mode that ruins potentiometer-based controls.</p>
+
+    <figure class="project-media">
+      <img src="../assets/img/pedals-sensor.png" alt="CAD render of the sensor lever and center magnet holder parts" width="1800" height="1200" loading="lazy">
+      <figcaption>FIG 3: The sensor lever and center magnet holder. The magnet sweeps past the fixed A1301 as the axis moves.</figcaption>
+    </figure>
 
     <h2>Firmware that gets out of the way</h2>
     <p>A Teensy 2.0 reads the three sensors and presents itself to the PC as a standard USB HID game controller; plug it in and every simulator sees it instantly. The C++ firmware handles per-axis calibration (learning each axis’s real min/center/max) and configurable deadzone logic, so mechanical imperfection never reaches the sim.</p>
