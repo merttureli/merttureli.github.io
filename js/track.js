@@ -146,6 +146,10 @@
     payload.sid = sid;
     payload.vid = vid;
     payload.ref = ref || undefined;
+    // Two sites report to the same collector and both have a "/" homepage, so
+    // the path alone cannot say which one this was. The server prefers its own
+    // Origin header over this; it is sent as a fallback.
+    payload.host = location.hostname;
     payload.path = location.pathname;
     // Flagged device, or a browser openly declaring itself automated.
     if (me || navigator.webdriver) payload.me = 1;
