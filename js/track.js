@@ -51,9 +51,29 @@
     params.get("utm_campaign") ||
     "";
 
+  // Banking the code is what lets a recruiter bookmark the page, come back on
+  // Thursday and still count against the right company. It needs two limits,
+  // though, both learned the hard way from a row that claimed a company had
+  // read the page when the only thing that opened it was Mert's own browser
+  // reusing a code he had tested three days earlier.
+  //
+  //   * the bank expires, so a stale code cannot haunt a browser forever
+  //   * a device flagged as his own never inherits one at all
+  var REF_TTL_MS = 30 * 86400000;
   try {
-    if (ref) localStorage.setItem("mt_ref", ref);
-    else ref = localStorage.getItem("mt_ref") || "";
+    if (ref) {
+      localStorage.setItem("mt_ref", ref);
+      localStorage.setItem("mt_ref_ts", String(Date.now()));
+    } else if (localStorage.getItem("mt_self") !== "1") {
+      var banked = localStorage.getItem("mt_ref") || "";
+      var when = parseInt(localStorage.getItem("mt_ref_ts") || "0", 10) || 0;
+      if (banked && Date.now() - when < REF_TTL_MS) {
+        ref = banked;
+      } else if (banked) {
+        localStorage.removeItem("mt_ref");
+        localStorage.removeItem("mt_ref_ts");
+      }
+    }
   } catch (e) { /* private mode, ride without persistence */ }
 
   /* ------------------------------------------------------------- own devices */
@@ -151,8 +171,12 @@
     // Origin header over this; it is sent as a fallback.
     payload.host = location.hostname;
     payload.path = location.pathname;
-    // Flagged device, or a browser openly declaring itself automated.
-    if (me || navigator.webdriver) payload.me = 1;
+    // Two different facts that used to share one field. "me" is a device this
+    // browser was told to ignore; "auto" is a browser declaring itself
+    // automated. Folding them together filed every headless scraper as one of
+    // his own machines and buried it in the self-filtered count.
+    if (me) payload.me = 1;
+    if (navigator.webdriver) payload.auto = 1;
 
     var blob;
     try {
